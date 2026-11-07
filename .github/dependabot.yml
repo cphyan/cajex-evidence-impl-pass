@@ -1,0 +1,11 @@
+# Dependency updates are on: npm packages and the workflows' actions, checked weekly.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

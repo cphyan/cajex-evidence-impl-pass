@@ -15,4 +15,7 @@ template work, each with the template it proves. Please leave them as they are.
 
 | File | Template | Meant to |
 |---|---|---|
-| *(filled in as templates arrive)* | | |
+| `.github/CODEOWNERS`, and a ruleset on `main` requiring code-owner review | `github.code-owners` | pass: owners are named and their review is required |
+| `.github/dependabot.yml` (npm and GitHub Actions, weekly) | `github.dependency-updates` | pass: dependency updates are on |
+| `src/index.js`, with code scanning (CodeQL default setup) on | `github.code-scanning-remediation` | pass: code scanning runs and finds nothing overdue |
+| Collaborators: the owner alone | `github.privileged-access` | pass: one admin, no outside collaborator who can write |
