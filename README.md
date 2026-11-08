@@ -19,3 +19,5 @@ template work, each with the template it proves. Please leave them as they are.
 | `.github/dependabot.yml` (npm and GitHub Actions, weekly) | `github.dependency-updates` | pass: dependency updates are on |
 | `src/index.js`, with code scanning (CodeQL default setup) on | `github.code-scanning-remediation` | pass: code scanning runs and finds nothing overdue |
 | Collaborators: the owner alone | `github.privileged-access` | pass: one admin, no outside collaborator who can write |
+| `infra/main.tf`: a database and a volume declared encrypted, a KMS key | `github.iac-storage-encrypted` | pass: storage declared encrypted at rest |
+| `infra/main.tf`: a security group open to the internet on 443 only | `github.iac-no-open-ingress` | pass: nothing open but web traffic |
