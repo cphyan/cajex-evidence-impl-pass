@@ -1,0 +1,13 @@
+# Fixture for cajeX's check templates (RFC 20 track C). Runs on pull requests, which this repository
+# never gets; a ruleset on main requires its "test" check. Actions pinned, the token reads only.
+name: ci
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: node --test

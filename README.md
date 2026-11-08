@@ -23,3 +23,5 @@ template work, each with the template it proves. Please leave them as they are.
 | `infra/main.tf`: a security group open to the internet on 443 only | `github.iac-no-open-ingress` | pass: nothing open but web traffic |
 | `.github/workflows/release.yml`: attests build provenance, actions pinned to a commit, a read-only token (runs only by hand) | `github.build-provenance` | pass: the build attests its provenance |
 | Release `v1.0.0` with `dist.tgz` and its signed provenance `dist.tgz.intoto.jsonl` | `github.release-attestations` | pass: the release carries a signed attestation |
+| `.github/workflows/ci.yml` on pull requests, and the ruleset's required `test` check | `github.tests-before-merge` | pass: tests must pass before a merge |
+| Every job on GitHub-hosted runners | `github.hosted-runners` | pass: builds start clean |
