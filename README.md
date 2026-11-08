@@ -26,3 +26,5 @@ template work, each with the template it proves. Please leave them as they are.
 | `.github/workflows/ci.yml` on pull requests, and the ruleset's required `test` check | `github.tests-before-merge` | pass: tests must pass before a merge |
 | Every job on GitHub-hosted runners | `github.hosted-runners` | pass: builds start clean |
 | `release.yml` makes an SBOM (`anchore/sbom-action`), and release `v1.0.0` carries `dist.tgz.spdx.json` | `github.sbom-generated`, `github.release-sbom` | pass: the build makes an SBOM, the release ships one |
+| `infra/main.tf`: HTTPS listener and an HTTP→HTTPS redirect; a multi-region CloudTrail with log validation; S3 object lock in COMPLIANCE mode; a lifecycle that expires uploads | `github.iac-tls-in-transit`, `github.iac-cloudtrail`, `github.iac-object-lock`, `github.iac-lifecycle-expiry` | pass |
+| `ci.yml` checks `infra/` with Checkov | `github.iac-policy-gate` | pass |

@@ -1,5 +1,6 @@
 # Fixture for cajeX's check templates (RFC 20 track C). Runs on pull requests, which this repository
-# never gets; a ruleset on main requires its "test" check. Actions pinned, the token reads only.
+# never gets; a ruleset on main requires its "test" check. Actions pinned, the token reads only;
+# the infrastructure code is checked against policy (Checkov) before it can merge.
 name: ci
 on:
   pull_request:
@@ -11,3 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - run: node --test
+  iac-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: bridgecrewio/checkov-action@99bb2caf247dfd9f03cf984373bc6043d4e32ebf # v12.1347.0
+        with:
+          directory: infra
