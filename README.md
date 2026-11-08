@@ -25,3 +25,4 @@ template work, each with the template it proves. Please leave them as they are.
 | Release `v1.0.0` with `dist.tgz` and its signed provenance `dist.tgz.intoto.jsonl` | `github.release-attestations` | pass: the release carries a signed attestation |
 | `.github/workflows/ci.yml` on pull requests, and the ruleset's required `test` check | `github.tests-before-merge` | pass: tests must pass before a merge |
 | Every job on GitHub-hosted runners | `github.hosted-runners` | pass: builds start clean |
+| `release.yml` makes an SBOM (`anchore/sbom-action`), and release `v1.0.0` carries `dist.tgz.spdx.json` | `github.sbom-generated`, `github.release-sbom` | pass: the build makes an SBOM, the release ships one |

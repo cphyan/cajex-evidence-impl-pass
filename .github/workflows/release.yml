@@ -1,5 +1,5 @@
 # Fixture for cajeX's check templates (RFC 20 tracks B and C). Runs only by hand, and never has.
-# The build attests its provenance; actions are pinned to a commit; the token reads only.
+# The build attests its provenance and makes an SBOM; actions are pinned to a commit; the token reads only.
 name: release
 on: workflow_dispatch
 permissions:
@@ -17,3 +17,8 @@ jobs:
       - uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
         with:
           subject-path: dist.tgz
+      - uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
+        with:
+          path: src
+          format: spdx-json
+          output-file: dist.tgz.spdx.json
