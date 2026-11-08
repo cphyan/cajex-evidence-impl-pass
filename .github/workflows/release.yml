@@ -1,0 +1,19 @@
+# Fixture for cajeX's check templates (RFC 20 tracks B and C). Runs only by hand, and never has.
+# The build attests its provenance; actions are pinned to a commit; the token reads only.
+name: release
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: tar czf dist.tgz src
+      - uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
+        with:
+          subject-path: dist.tgz

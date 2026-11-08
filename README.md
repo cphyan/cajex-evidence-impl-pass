@@ -21,3 +21,5 @@ template work, each with the template it proves. Please leave them as they are.
 | Collaborators: the owner alone | `github.privileged-access` | pass: one admin, no outside collaborator who can write |
 | `infra/main.tf`: a database and a volume declared encrypted, a KMS key | `github.iac-storage-encrypted` | pass: storage declared encrypted at rest |
 | `infra/main.tf`: a security group open to the internet on 443 only | `github.iac-no-open-ingress` | pass: nothing open but web traffic |
+| `.github/workflows/release.yml`: attests build provenance, actions pinned to a commit, a read-only token (runs only by hand) | `github.build-provenance` | pass: the build attests its provenance |
+| Release `v1.0.0` with `dist.tgz` and its signed provenance `dist.tgz.intoto.jsonl` | `github.release-attestations` | pass: the release carries a signed attestation |
